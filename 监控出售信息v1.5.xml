@@ -1,0 +1,197 @@
+<?xml version="1.0"?>
+<TriggernometryExport Version="1">
+  <ExportedFolder Id="bfc9f8b4-6ff1-410e-bb8b-9e38b39fb8d7" Name="simple工具" Enabled="true">
+    <Folders>
+      <Folder Id="c2dc22e1-64d9-4366-8d20-4163973dca21" Name="simple工具初始化" Enabled="true">
+        <Folders />
+        <Triggers>
+          <Trigger Enabled="true" Name="初始化" Id="a57b6b94-5322-44ab-b305-f011cd7664f3" RegularExpression="^\[(?&lt;HH&gt;.{2}):(?&lt;mm&gt;.{2}):(?&lt;ss&gt;.{2}).{4}\] Version FD">
+            <Actions>
+              <Action OrderNumber="1" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="ed4bb6c2-508a-4371-98c7-bfcae4f2a7c1" TriggerForce="regexp,conditions" ActionType="Trigger" Description="出售信息初始化">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="a7d8a8f9-22d1-492d-9a43-055bc0777e91" TriggerForce="regexp,conditions" ActionType="Trigger">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Trigger>
+        </Triggers>
+      </Folder>
+      <Folder Id="67018d9a-fdec-459c-a4a4-e4f6e8856de6" Name="出售监控" Enabled="true">
+        <Folders />
+        <Triggers>
+          <Trigger Enabled="true" Name="3.初始化" Id="ed4bb6c2-508a-4371-98c7-bfcae4f2a7c1" RegularExpression="初始化114514初始化114514初始化114514">
+            <Actions>
+              <Action OrderNumber="1" OBSEndPoint="" VariableOp="SetNumeric" VariableName="goldall" VariableExpression="0" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" OBSEndPoint="" VariableOp="SetString" VariableName="commodity" TextAuraFontSize="9" TextAuraFontName="宋体" Enabled="False" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="3" OBSEndPoint="" VariableOp="SetNumeric" VariableName="num" VariableExpression="0" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="4" OBSEndPoint="" VariableOp="SetString" VariableName="商品列表字符串" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="5" ListVariableName="商品列表" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="6" NamedCallbackName="command" NamedCallbackParam="/e 出售信息监控已初始化" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="NamedCallback">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Sequential="True" Name="1.处理商品名称" Id="8ffb44de-34fe-4d33-a4a3-9c0ad690dadc" RegularExpression="的价格出售的“(?&lt;单品&gt;.*)”×">
+            <Actions>
+              <Action OrderNumber="1" ListVariableOp="Push" ListVariableName="商品列表" ListVariableExpression="${单品}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" ListVariableOp="Join" ListVariableName="商品列表" ListVariableExpression="," ListVariableTarget="商品列表字符串" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="true" Grouping="And">
+              <ConditionSingle Enabled="true" ExpressionL="${lvar:商品列表.indexof(${单品})}" ExpressionTypeL="String" ExpressionR="^0$" ExpressionTypeR="String" ConditionType="RegexMatch" />
+            </Condition>
+          </Trigger>
+          <Trigger Enabled="true" Sequential="True" Name="1.处理金币信息与出售次数" Id="b184d400-04d2-4a1d-88cf-de55d3179a95" RegularExpression="成功售出，获得了(?&lt;gold&gt;.*)金币。">
+            <Actions>
+              <Action OrderNumber="1" OBSEndPoint="" VariableOp="SetString" VariableName="gold" VariableExpression="${gold}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" ListVariableOp="Split" ListVariableName="gold" ListVariableExpression="," ListVariableTarget="gold" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="3" ListVariableOp="Join" ListVariableName="gold" ListVariableTarget="gold" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="4" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="宋体" Enabled="False" ActionType="SystemBeep">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="5" OBSEndPoint="" VariableOp="SetNumeric" VariableName="goldall" VariableExpression="${var:gold}+${var:goldall}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="6" MessageBoxText="${var:goldall}" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="宋体" Enabled="False" ActionType="MessageBox">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="7" OBSEndPoint="" VariableOp="SetNumeric" VariableName="num" VariableExpression="${var:num}+1" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="8" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="028d6d3b-275d-42d4-8137-96a90fbcf20a" TriggerForce="regexp,conditions" ActionType="Trigger">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:num}" ExpressionTypeL="Numeric" ExpressionR="10" ExpressionTypeR="Numeric" ConditionType="NumericGreaterEqual" />
+                </Condition>
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Sequential="True" Name="2.已达十次，被动触发，发送信息" Id="028d6d3b-275d-42d4-8137-96a90fbcf20a" RegularExpression="">
+            <Actions>
+              <Action OrderNumber="1" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="宋体" Enabled="False" ActionType="SystemBeep">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" DiscordWebhookMessage="【累计出售${var:num}次】，出售商品为${var:商品列表字符串}，总收入${var:goldall}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="DiscordWebhook">
+                <Condition Enabled="false" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:dianzan}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="3" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="宋体" TriggerId="ed4bb6c2-508a-4371-98c7-bfcae4f2a7c1" TriggerForce="regexp,conditions" ActionType="Trigger">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+        </Triggers>
+      </Folder>
+      <Folder Id="4258cabd-9ca4-4619-a217-78cee5bcc86e" Name="传送费监控" Enabled="true">
+        <Folders />
+        <Triggers>
+          <Trigger Enabled="true" Sequential="True" Name="1.处理金币信息与传送次数" Id="09da53e7-2670-4aa5-a96f-776bc80d12f2" RegularExpression="^\[(?&lt;datetime&gt;.{8}).{4}\] ChatLog 00:0839::消耗了(?&lt;传送费&gt;.*)金币。">
+            <Actions>
+              <Action OrderNumber="1" OBSEndPoint="" VariableOp="SetString" VariableName="传送费" VariableExpression="${传送费}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" ListVariableOp="Split" ListVariableName="传送费" ListVariableExpression="," ListVariableTarget="传送费" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="3" ListVariableOp="Join" ListVariableName="传送费" ListVariableTarget="传送费" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="ListVariable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="4" OBSEndPoint="" VariableOp="SetNumeric" VariableName="传送费all" VariableExpression="${var:传送费}+${var:传送费all}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="5" MessageBoxText="${var:goldall}" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="宋体" Enabled="False" ActionType="MessageBox">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="6" OBSEndPoint="" VariableOp="SetNumeric" VariableName="传送num" VariableExpression="${var:传送num}+1" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="7" OBSEndPoint="" VariableOp="SetString" VariableName="datetime" VariableExpression="${datetime}" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:已记录第一次传送时间}" ExpressionTypeL="String" ExpressionR="^0$" ExpressionTypeR="String" ConditionType="RegexMatch" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="8" OBSEndPoint="" VariableOp="SetNumeric" VariableName="已记录第一次传送时间" VariableExpression="1" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                <Condition Enabled="false" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${datetime}" ExpressionTypeL="String" ExpressionR="^A$" ExpressionTypeR="String" ConditionType="RegexMatch" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="9" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="宋体" Enabled="False" ActionType="SystemBeep">
+                <Condition Enabled="true" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${datetime}" ExpressionTypeL="String" ExpressionR="^A$" ExpressionTypeR="String" ConditionType="RegexMatch" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="10" MessageBoxText="${datetime}" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="宋体" Enabled="False" ActionType="MessageBox">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Trigger>
+          <Trigger Enabled="true" Name="初始化" Id="a7d8a8f9-22d1-492d-9a43-055bc0777e91" RegularExpression="初始化114514初始化114514初始化114514">
+            <Actions>
+              <Action OrderNumber="1" OBSEndPoint="" VariableOp="SetNumeric" VariableName="传送费all" VariableExpression="0" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" OBSEndPoint="" VariableOp="SetNumeric" VariableName="传送num" VariableExpression="0" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="3" OBSEndPoint="" VariableOp="SetString" VariableName="datetime" VariableExpression="A" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="4" NamedCallbackName="command" NamedCallbackParam="/e 传送费监控已初始化" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="NamedCallback">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="5" OBSEndPoint="" VariableOp="SetNumeric" VariableName="已记录第一次传送时间" VariableExpression="0" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="Variable">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+            <Conditions />
+          </Trigger>
+          <Trigger Enabled="true" Name="2.转发传送费用" Id="9caa2d74-c138-43e3-9bba-c098265b817a" RegularExpression="查询传送费">
+            <Actions>
+              <Action OrderNumber="1" DiscordWebhookMessage="从${var:datetime}到现在的传送费是：${var:传送费all}。一共传送了${var:传送num}次" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="DiscordWebhook">
+                <Condition Enabled="false" Grouping="And">
+                  <ConditionSingle Enabled="true" ExpressionL="${var:dianzan}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericNotEqual" />
+                </Condition>
+              </Action>
+              <Action OrderNumber="2" NamedCallbackName="command" NamedCallbackParam="/e 从${var:datetime}到现在的传送费是：${var:传送费all}。一共传送了${var:传送num}次" OBSEndPoint="" TextAuraFontSize="9" TextAuraFontName="宋体" ActionType="NamedCallback">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="true" Grouping="And">
+              <ConditionSingle Enabled="true" ExpressionL="${var:已记录第一次传送时间}" ExpressionTypeL="Numeric" ExpressionR="1" ExpressionTypeR="Numeric" ConditionType="NumericEqual" />
+            </Condition>
+            <Conditions />
+          </Trigger>
+        </Triggers>
+      </Folder>
+    </Folders>
+    <Triggers />
+  </ExportedFolder>
+</TriggernometryExport>
