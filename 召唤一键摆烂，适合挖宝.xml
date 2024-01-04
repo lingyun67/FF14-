@@ -1,0 +1,418 @@
+<?xml version="1.0"?>
+<TriggernometryExport Version="1">
+  <ExportedFolder Id="60f21873-1687-436c-aa76-5b022359c557" Name="召唤一键摆烂" Enabled="false">
+    <Folders>
+      <Folder Id="b1be3009-f8da-472f-b898-4be6f849772f" ZoneFilterRegularExpression="^迷津$" Name="挖宝自动开关模块" Enabled="false">
+        <Folders>
+          <Folder Id="57bcc803-b14a-4fb0-86dd-24328f5579d0" Name="挖宝中没用的辅助" Enabled="true">
+            <Folders />
+            <Triggers>
+              <Trigger Enabled="true" Name="发现隐藏的宝箱！" Id="7a5903e3-0e93-49ab-b27a-cdd4359e3517" RegularExpression="^.{14} ChatLog 00:0839::发现隐藏的宝箱！">
+                <Actions>
+                  <Action OrderNumber="1" NamedCallbackName="command" NamedCallbackParam="/target 宝箱" VariableOp="SetNumeric" Enabled="False" ActionType="NamedCallback">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="2" NamedCallbackName="command" NamedCallbackParam="/坐骑 专属陆行鸟" VariableOp="SetNumeric" ActionType="NamedCallback">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="3" NamedCallbackName="command" NamedCallbackParam="/坐骑 专属陆行鸟" VariableOp="SetNumeric" Enabled="False" ActionType="NamedCallback">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="4" NamedCallbackName="command" NamedCallbackParam="/场景标记 A &lt;t&gt;" VariableOp="SetNumeric" Enabled="False" ActionType="NamedCallback">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                  <Action OrderNumber="5" MessageBoxIconType="Question" MessageBoxText="${player}" Enabled="False" ActionType="MessageBox">
+                    <Condition Enabled="false" Grouping="Or" />
+                  </Action>
+                </Actions>
+                <Condition Enabled="false" Grouping="Or" />
+              </Trigger>
+            </Triggers>
+          </Folder>
+        </Folders>
+        <Triggers>
+          <Trigger Enabled="true" Name="神殿阿托莫斯消失后，发动了上级召唤，神秘柯瑞甘出现了！" Id="3da9809d-dea3-47cc-aaa5-b6f69fe41ce8" RegularExpression="^.{14} ChatLog 00:0839::神殿阿托莫斯消失后，发动了(?&lt;level&gt;.*)，(?&lt;boss111&gt;.*)出现了！">
+            <Actions>
+              <Action OrderNumber="-1" NamedCallbackName="command" NamedCallbackParam="/e 单体输出开始114514GOGOGO" VariableOp="SetNumeric" ActionType="NamedCallback">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" TriggerId="4e6f69e9-709f-4522-ae91-e232c070ab89" TriggerText="Tip_Subtitle:待机中:20:0:0:jiankong" Enabled="False" ActionType="Trigger">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" TriggerId="4e6f69e9-709f-4522-ae91-e232c070ab89" TriggerText="Tip_Subtitle:当前为${level},BOSS:${boss111}:20:0:0:main" Enabled="False" ActionType="Trigger">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="4" KeypressType="WindowMessage" KeyPressCode="9" KeyPressWindow="最终幻想XIV" Enabled="False" ActionType="KeyPress" ExecutionDelayExpression="6300">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="5" NamedCallbackName="command" NamedCallbackParam="/targetenemy" VariableOp="SetNumeric" ActionType="NamedCallback" ExecutionDelayExpression="6300">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Name="讨伐了所有的魔物！" Id="e4b692d6-eeab-49e2-acef-e5a7b6d82865" RegularExpression="^.{14} ChatLog 00:0839::讨伐了所有的魔物！">
+            <Actions>
+              <Action OrderNumber="1" NamedCallbackName="command" NamedCallbackParam="/e 取消取消取消取消114514GOGOGO" VariableOp="SetNumeric" ActionType="NamedCallback" ExecutionDelayExpression="10">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" TriggerId="4e6f69e9-709f-4522-ae91-e232c070ab89" TriggerText="Tip_Subtitle: :20:0:0:jiankong" Enabled="False" ActionType="Trigger">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="3" TriggerId="4e6f69e9-709f-4522-ae91-e232c070ab89" TriggerText="Tip_Subtitle:所有敌人已解决,取消动作队列:3:0:0:main" Enabled="False" ActionType="Trigger">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Name="将陷阱引来的魔物全部打倒了！" Id="5a278f99-4215-4b1f-8148-d428b53a1fcb" RegularExpression="^.{14} ChatLog 00:0839::将陷阱引来的魔物全部打倒了！">
+            <Actions>
+              <Action OrderNumber="1" NamedCallbackName="command" NamedCallbackParam="/e 取消取消取消取消114514GOGOGO" VariableOp="SetNumeric" ActionType="NamedCallback">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" TriggerId="4e6f69e9-709f-4522-ae91-e232c070ab89" TriggerText="Tip_Subtitle: :20:0:0:jiankong" Enabled="False" ActionType="Trigger">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="3" TriggerId="4e6f69e9-709f-4522-ae91-e232c070ab89" TriggerText="Tip_Subtitle:所有敌人已解决,取消动作队列:3:0:0:main" Enabled="False" ActionType="Trigger">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Name="打倒了所有敌人！" Id="44ac1814-c6a8-4804-80ad-d2be5a7b4236" RegularExpression="^.{14} ChatLog 00:0839::打倒了所有敌人！">
+            <Actions>
+              <Action OrderNumber="1" NamedCallbackName="command" NamedCallbackParam="/e 取消取消取消取消114514GOGOGO" VariableOp="SetNumeric" ActionType="NamedCallback" ExecutionDelayExpression="10">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" TriggerId="4e6f69e9-709f-4522-ae91-e232c070ab89" TriggerText="Tip_Subtitle: :20:0:0:jiankong" Enabled="False" ActionType="Trigger">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="3" TriggerId="4e6f69e9-709f-4522-ae91-e232c070ab89" TriggerText="Tip_Subtitle:所有敌人已解决,取消动作队列:3:0:0:main" Enabled="False" ActionType="Trigger">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Name="陷阱发动，栅栏被打开了！" Id="1847d451-da81-4560-933c-3fb1816ccaf6" RegularExpression="^.{14} ChatLog 00:0839::陷阱发动，栅栏被打开了！">
+            <Actions>
+              <Action OrderNumber="1" NamedCallbackName="command" NamedCallbackParam="/e 群群群群群输出开始114514GOGOGO" VariableOp="SetNumeric" ActionType="NamedCallback">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" TriggerId="4e6f69e9-709f-4522-ae91-e232c070ab89" TriggerText="Tip_Subtitle:清理小怪中:20:0:0:jiankong" Enabled="False" ActionType="Trigger">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="3" TriggerId="4e6f69e9-709f-4522-ae91-e232c070ab89" TriggerText="Tip_Subtitle:已触发输出:3:0:0:main" Enabled="False" ActionType="Trigger">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Name="发动了上级召唤，神秘柯瑞甘出现了！" Id="8034bebd-234e-42f8-a2f9-0d5319a5b0d0" RegularExpression="^.{14} ChatLog 00:0839::发动了(?&lt;level&gt;.*)，(?&lt;boss111&gt;.*)出现了！">
+            <Actions>
+              <Action OrderNumber="1" NamedCallbackName="command" NamedCallbackParam="/e 单体输出开始114514GOGOGO" VariableOp="SetNumeric" ActionType="NamedCallback">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" NamedCallbackName="command" NamedCallbackParam="/targetenemy" VariableOp="SetNumeric" ActionType="NamedCallback" ExecutionDelayExpression="6300">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="3" KeypressType="WindowMessage" KeyPressCode="9" KeyPressWindow="最终幻想XIV" Enabled="False" ActionType="KeyPress" ExecutionDelayExpression="6300">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="5" TriggerId="4e6f69e9-709f-4522-ae91-e232c070ab89" TriggerText="Tip_Subtitle:当前为${level},Boss${boss111}:20:0:0:jiankong" Enabled="False" ActionType="Trigger">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="5" KeypressType="WindowMessage" KeyPressCode="9" KeyPressWindow="最终幻想XIV" Enabled="False" ActionType="KeyPress" ExecutionDelayExpression="2500">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="6" NamedCallbackName="command" NamedCallbackParam="/targetenemy" VariableOp="SetNumeric" ActionType="NamedCallback" ExecutionDelayExpression="2500">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="7" KeypressType="WindowMessage" KeyPressCode="9" KeyPressWindow="最终幻想XIV" Enabled="False" ActionType="KeyPress" ExecutionDelayExpression="2500">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="8" NamedCallbackName="command" NamedCallbackParam="/targetenemy" VariableOp="SetNumeric" ActionType="NamedCallback" ExecutionDelayExpression="2500">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Name="陷阱发动，散发出了吸引魔物的气味！" Id="d8cfd515-859c-4962-bd5c-30353f63c37a" RegularExpression="^.{14} ChatLog 00:0839::陷阱发动，散发出了吸引魔物的气味！">
+            <Actions>
+              <Action OrderNumber="1" NamedCallbackName="command" NamedCallbackParam="/e 群群群群群输出开始114514GOGOGO" VariableOp="SetNumeric" ActionType="NamedCallback">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" TriggerId="4e6f69e9-709f-4522-ae91-e232c070ab89" TriggerText="Tip_Subtitle:清理小怪中:20:0:0:jiankong" Enabled="False" ActionType="Trigger">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="3" TriggerId="4e6f69e9-709f-4522-ae91-e232c070ab89" TriggerText="Tip_Subtitle:已触发输出:3:0:0:main" Enabled="False" ActionType="Trigger">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Name="神秘清道夫消失后，发动了上级召唤，神秘柯瑞甘出现了！" Id="15cdbef6-8d4a-4b9c-891c-ed506401d884" RegularExpression="^.{14} ChatLog 00:0839::神秘清道夫消失后，发动了(?&lt;level&gt;.*)，(?&lt;boss111&gt;.*)出现了！">
+            <Actions>
+              <Action OrderNumber="1" NamedCallbackName="command" NamedCallbackParam="/e 单体输出开始114514GOGOGO" VariableOp="SetNumeric" ActionType="NamedCallback">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" TriggerId="4e6f69e9-709f-4522-ae91-e232c070ab89" TriggerText="Tip_Subtitle:待机中:20:0:0:jiankong" Enabled="False" ActionType="Trigger">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="3" TriggerId="4e6f69e9-709f-4522-ae91-e232c070ab89" TriggerText="Tip_Subtitle:当前为${level},BOSS:${boss111}:20:0:0:main" Enabled="False" ActionType="Trigger">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="4" KeypressType="WindowMessage" KeyPressCode="9" KeyPressWindow="最终幻想XIV" Enabled="False" ActionType="KeyPress" ExecutionDelayExpression="6300">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="6" NamedCallbackName="command" NamedCallbackParam="/targetenemy" VariableOp="SetNumeric" ActionType="NamedCallback" ExecutionDelayExpression="6300">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+        </Triggers>
+      </Folder>
+      <Folder Id="a07ee293-3be9-4c56-a75b-807f782d68c9" ZoneFilterRegularExpression="^迷津$" Name="fate自动模块" Enabled="true">
+        <Folders />
+        <Triggers>
+          <Trigger Enabled="true" Name="进入fate自动进行等级同步" Id="fd572a29-d7d3-40a3-85af-93e56dfe198b" RegularExpression="^.{14} ChatLog 00:083C::比推荐等级高出5级以上。 ">
+            <Actions>
+              <Action OrderNumber="1" NamedCallbackName="command" NamedCallbackParam="/levelsync on" VariableOp="SetNumeric" ActionType="NamedCallback" ExecutionDelayExpression="10">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" TriggerId="4e6f69e9-709f-4522-ae91-e232c070ab89" TriggerText="Tip_Subtitle: :20:0:0:jiankong" Enabled="False" ActionType="Trigger">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="3" TriggerId="4e6f69e9-709f-4522-ae91-e232c070ab89" TriggerText="Tip_Subtitle:所有敌人已解决,取消动作队列:3:0:0:main" Enabled="False" ActionType="Trigger">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="false" Name="等级同步已解除。然后上车上车上车上车跟随跟随跟随跟随" Id="30e6bc04-135c-4f79-83b9-437a54dc3f32" RegularExpression="^.{14} ChatLog 00:0839::等级同步已解除。">
+            <Actions>
+              <Action OrderNumber="1" KeypressType="WindowMessage" KeyPressCode="55" KeyPressWindow="最终幻想XIV" ActionType="KeyPress" ExecutionDelayExpression="100" Asynchronous="False">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" KeypressType="WindowMessage" KeyPressCode="55" KeyPressWindow="最终幻想XIV" ActionType="KeyPress" ExecutionDelayExpression="100" Asynchronous="False">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="3" KeypressType="WindowMessage" KeyPressCode="55" KeyPressWindow="最终幻想XIV" ActionType="KeyPress" ExecutionDelayExpression="100" Asynchronous="False">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="4" KeypressType="WindowMessage" KeyPressCode="55" KeyPressWindow="最终幻想XIV" ActionType="KeyPress" ExecutionDelayExpression="100" Asynchronous="False">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="5" NamedCallbackName="command" NamedCallbackParam="/坐骑 空军装甲" VariableOp="SetNumeric" Enabled="False" ActionType="NamedCallback" ExecutionDelayExpression="1000">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="6" KeypressType="WindowMessage" KeyPressCode="32" KeyPressWindow="最终幻想XIV" ActionType="KeyPress" ExecutionDelayExpression="1000" Asynchronous="False">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="7" KeypressType="WindowMessage" KeyPressCode="32" KeyPressWindow="最终幻想XIV" ActionType="KeyPress" ExecutionDelayExpression="10" Asynchronous="False">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="8" KeypressType="WindowMessage" KeyPressCode="32" KeyPressWindow="最终幻想XIV" ActionType="KeyPress" ExecutionDelayExpression="10" Asynchronous="False">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="9" KeypressType="WindowMessage" KeyPressCode="32" KeyPressWindow="最终幻想XIV" ActionType="KeyPress" ExecutionDelayExpression="10" Asynchronous="False">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="10" KeypressType="WindowMessage" KeyPressCode="54" KeyPressWindow="最终幻想XIV" ActionType="KeyPress" Asynchronous="False">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="11" TriggerId="4e6f69e9-709f-4522-ae91-e232c070ab89" TriggerText="Tip_Subtitle: :20:0:0:jiankong" Enabled="False" ActionType="Trigger">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="12" TriggerId="4e6f69e9-709f-4522-ae91-e232c070ab89" TriggerText="Tip_Subtitle:所有敌人已解决,取消动作队列:3:0:0:main" Enabled="False" ActionType="Trigger">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+          <Trigger Enabled="true" Name="等级同步已解除。" Id="118f9994-2743-46c4-88d0-f4e885ffffd4" RegularExpression="^.{14} ChatLog 00:0839::等级同步已解除。">
+            <Actions>
+              <Action OrderNumber="1" NamedCallbackName="command" NamedCallbackParam="/e 取消取消取消取消114514GOGOGO" VariableOp="SetNumeric" ActionType="NamedCallback" ExecutionDelayExpression="10">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" TriggerId="4e6f69e9-709f-4522-ae91-e232c070ab89" TriggerText="Tip_Subtitle: :20:0:0:jiankong" Enabled="False" ActionType="Trigger">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="3" TriggerId="4e6f69e9-709f-4522-ae91-e232c070ab89" TriggerText="Tip_Subtitle:所有敌人已解决,取消动作队列:3:0:0:main" Enabled="False" ActionType="Trigger">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="false" Grouping="Or" />
+          </Trigger>
+        </Triggers>
+      </Folder>
+    </Folders>
+    <Triggers>
+      <Trigger Enabled="true" Name="群体输出模块" Id="4da85220-d1c1-45ac-9955-0848a5bf0064" RegularExpression="">
+        <Actions>
+          <Action OrderNumber="1" TriggerId="dad6a9ea-0ffd-42e5-8731-9ed0868b8894" TriggerText="Tip_Subtitle:群体输出中:4:0:0:main" ActionType="Trigger">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="2" NamedCallbackName="command" NamedCallbackParam="/ac 以太蓄能" VariableOp="SetNumeric" ActionType="NamedCallback">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="3" NamedCallbackName="command" NamedCallbackParam="/ac 星极超流" VariableOp="SetNumeric" ActionType="NamedCallback">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="4" NamedCallbackName="command" NamedCallbackParam="/ac 灼热之光" VariableOp="SetNumeric" ActionType="NamedCallback">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="5" NamedCallbackName="command" NamedCallbackParam="/ac 守护之光" VariableOp="SetNumeric" ActionType="NamedCallback">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="6" NamedCallbackName="command" NamedCallbackParam="/ac 宝石辉" VariableOp="SetNumeric" ActionType="NamedCallback">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="7" NamedCallbackName="command" NamedCallbackParam="/ac 风神召唤" VariableOp="SetNumeric" ActionType="NamedCallback">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="8" NamedCallbackName="command" NamedCallbackParam="/ac 土神召唤" VariableOp="SetNumeric" ActionType="NamedCallback">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="9" NamedCallbackName="command" NamedCallbackParam="/ac 火神召唤" VariableOp="SetNumeric" ActionType="NamedCallback">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="10" NamedCallbackName="command" NamedCallbackParam="/ac 迸裂" VariableOp="SetNumeric" ActionType="NamedCallback">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="11" NamedCallbackName="command" NamedCallbackParam="/ac 能量抽取" VariableOp="SetNumeric" ActionType="NamedCallback">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="12" NamedCallbackName="command" NamedCallbackParam="/ac 龙神迸发" VariableOp="SetNumeric" ActionType="NamedCallback">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="13" NamedCallbackName="command" NamedCallbackParam="/ac 痛苦核爆" VariableOp="SetNumeric" ActionType="NamedCallback">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="14" NamedCallbackName="command" NamedCallbackParam="/ac 醒梦" VariableOp="SetNumeric" ActionType="NamedCallback">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="15" KeypressType="WindowMessage" KeyPressCode="9" KeyPressWindow="最终幻想XIV" Enabled="False" ActionType="KeyPress" ExecutionDelayExpression="200" Asynchronous="False">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="16" NamedCallbackName="command" NamedCallbackParam="/targetenemy" VariableOp="SetNumeric" ActionType="NamedCallback">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+        </Actions>
+        <Condition Enabled="false" Grouping="Or" />
+      </Trigger>
+      <Trigger Enabled="true" Name="状态检测：取消队列动作" Id="09e433dd-5617-44ea-859d-e91cefb6b999" RegularExpression="^.{14} ChatLog 00:0038::取消取消取消取消114514GOGOGO">
+        <Actions>
+          <Action OrderNumber="1" TriggerId="4da85220-d1c1-45ac-9955-0848a5bf0064" TriggerForce="regexp,conditions" Enabled="False" ActionType="Trigger">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="2" TriggerId="09e433dd-5617-44ea-859d-e91cefb6b999" TriggerForce="regexp,conditions" Enabled="False" ActionType="Trigger">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="3" TriggerOp="CancelAllTrigger" ActionType="Trigger">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="4" TriggerId="dad6a9ea-0ffd-42e5-8731-9ed0868b8894" TriggerText="Tip_Subtitle:已取消动作:4:0:0:main" ActionType="Trigger">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+        </Actions>
+        <Condition Enabled="false" Grouping="Or" />
+      </Trigger>
+      <Trigger Enabled="true" Name="状态检测：群体开始" Id="f0025b3f-e76d-4b43-8cc6-3410e2dff7f9" RegularExpression="^.{14} ChatLog 00:0038::群群群群群输出开始114514GOGOGO">
+        <Actions>
+          <Action OrderNumber="1" TriggerId="4da85220-d1c1-45ac-9955-0848a5bf0064" TriggerForce="regexp,conditions" ActionType="Trigger">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="2" TriggerId="f0025b3f-e76d-4b43-8cc6-3410e2dff7f9" TriggerForce="regexp,conditions" ActionType="Trigger" ExecutionDelayExpression="200">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+        </Actions>
+        <Condition Enabled="false" Grouping="Or" />
+      </Trigger>
+      <Trigger Enabled="true" Name="单体输出模块" Id="e9eb44c5-1161-446c-85b7-f6fab5acc200" RegularExpression="">
+        <Actions>
+          <Action OrderNumber="1" TriggerId="dad6a9ea-0ffd-42e5-8731-9ed0868b8894" TriggerText="Tip_Subtitle:单体输出中:3:0:0:main" ActionType="Trigger">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="2" TriggerId="dad6a9ea-0ffd-42e5-8731-9ed0868b8894" TriggerText="Tip_Subtitle:坦克LB:3:0:0:main" Enabled="False" ActionType="Trigger">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="3" NamedCallbackName="command" NamedCallbackParam="/ac 以太蓄能" VariableOp="SetNumeric" ActionType="NamedCallback">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="4" NamedCallbackName="command" NamedCallbackParam="/ac 星极超流" VariableOp="SetNumeric" ActionType="NamedCallback">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="5" NamedCallbackName="command" NamedCallbackParam="/ac 灼热之光" VariableOp="SetNumeric" ActionType="NamedCallback">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="6" NamedCallbackName="command" NamedCallbackParam="/ac 守护之光" VariableOp="SetNumeric" ActionType="NamedCallback">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="7" NamedCallbackName="command" NamedCallbackParam="/ac 宝石耀" VariableOp="SetNumeric" ActionType="NamedCallback">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="8" NamedCallbackName="command" NamedCallbackParam="/ac 风神召唤" VariableOp="SetNumeric" ActionType="NamedCallback">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="9" NamedCallbackName="command" NamedCallbackParam="/ac 土神召唤" VariableOp="SetNumeric" ActionType="NamedCallback">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="10" NamedCallbackName="command" NamedCallbackParam="/ac 火神召唤" VariableOp="SetNumeric" ActionType="NamedCallback">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="11" NamedCallbackName="command" NamedCallbackParam="/ac 毁灭" VariableOp="SetNumeric" ActionType="NamedCallback">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="12" NamedCallbackName="command" NamedCallbackParam="/ac 能量吸收" VariableOp="SetNumeric" ActionType="NamedCallback">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="13" NamedCallbackName="command" NamedCallbackParam="/ac 龙神迸发" VariableOp="SetNumeric" ActionType="NamedCallback">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="14" NamedCallbackName="command" NamedCallbackParam="/ac 溃烂爆发" VariableOp="SetNumeric" ActionType="NamedCallback">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="15" NamedCallbackName="command" NamedCallbackParam="/ac 醒梦" VariableOp="SetNumeric" ActionType="NamedCallback">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+        </Actions>
+        <Condition Enabled="false" Grouping="Or" />
+      </Trigger>
+      <Trigger Enabled="true" Name="状态检测：单体开始" Id="789325ef-1ca3-4b78-b219-730c7763465d" RegularExpression="^.{14} ChatLog 00:0038::单体输出开始114514GOGOGO">
+        <Actions>
+          <Action OrderNumber="1" TriggerId="e9eb44c5-1161-446c-85b7-f6fab5acc200" TriggerForce="regexp,conditions" ActionType="Trigger">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="2" TriggerId="789325ef-1ca3-4b78-b219-730c7763465d" TriggerForce="regexp,conditions" ActionType="Trigger" ExecutionDelayExpression="200">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="3" TriggerId="dad6a9ea-0ffd-42e5-8731-9ed0868b8894" TriggerText="Tip_Subtitle:单体输出开始:4:0:0:main" Enabled="False" ActionType="Trigger">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+        </Actions>
+        <Condition Enabled="false" Grouping="Or" />
+      </Trigger>
+      <Trigger Enabled="true" Name="摆烂状态监控" Id="dad6a9ea-0ffd-42e5-8731-9ed0868b8894" RegularExpression="Tip_Subtitle:(?&lt;text&gt;\S+):(?&lt;time&gt;[\d\.]+):(?&lt;offset_x&gt;[\d\.-]+):(?&lt;offset_y&gt;[\d\.-]+):(?&lt;id&gt;\S+)">
+        <Actions>
+          <Action OrderNumber="1" UseTTSTextExpression="${var:Souma_Team_Role}" TextAuraEffect="Bold" TextAuraFontSize="26.25" TextAuraForeground="White" TextAuraOutline="Fuchsia" TextAuraName="Tip_Subtitle_${id}" TextAuraExpression="${text}" TextAuraXIniExpression="212" TextAuraYIniExpression="421" TextAuraWIniExpression="400" TextAuraHIniExpression="200" TextAuraOIniExpression="100" TextAuraTTLTickExpression="${time}*1000-${_sincems}" TextAuraUseOutline="True" TextAuraFontName="微软雅黑" ActionType="TextAura" Asynchronous="False">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+        </Actions>
+        <Condition Enabled="false" Grouping="Or" />
+      </Trigger>
+      <Trigger Enabled="true" Name="打怪状态监控" Id="4e6f69e9-709f-4522-ae91-e232c070ab89" RegularExpression="Tip_Subtitle:(?&lt;text&gt;\S+):(?&lt;time&gt;[\d\.]+):(?&lt;offset_x&gt;[\d\.-]+):(?&lt;offset_y&gt;[\d\.-]+):(?&lt;id&gt;\S+)">
+        <Actions>
+          <Action OrderNumber="1" UseTTSTextExpression="${var:Souma_Team_Role}" TextAuraEffect="Bold" TextAuraFontSize="26.25" TextAuraForeground="White" TextAuraOutline="Red" TextAuraName="Tip_SubtitleYun_${id}" TextAuraExpression="${text}" TextAuraXIniExpression="373" TextAuraYIniExpression="235" TextAuraWIniExpression="1169" TextAuraHIniExpression="167" TextAuraOIniExpression="100" TextAuraUseOutline="True" TextAuraFontName="微软雅黑" ActionType="TextAura" Asynchronous="False">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+        </Actions>
+        <Condition Enabled="false" Grouping="Or" />
+      </Trigger>
+      <Trigger Enabled="false" Name="!!!摆烂器介绍!!!" Id="d519789a-7b32-47e1-a569-4f71d4702e9f" RegularExpression="" Description="单体输出宏：/e 单体输出开始114514GOGOGO&#xD;&#xA;群体输出宏：/e 群群群群群输出开始114514GOGOGO&#xD;&#xA;取消所有动作：/e 取消取消取消取消114514GOGOGO">
+        <Actions />
+        <Condition Enabled="false" Grouping="Or" />
+      </Trigger>
+    </Triggers>
+  </ExportedFolder>
+</TriggernometryExport>

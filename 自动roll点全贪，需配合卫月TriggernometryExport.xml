@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<TriggernometryExport Version="1">
+  <ExportedFolder Id="7814c531-8689-4a1c-810d-434ad6e466f2" Name="roll点" Enabled="false">
+    <Folders />
+    <Triggers>
+      <Trigger Enabled="true" Name="全贪" Id="79f63d9a-5ccf-4c2c-bc0e-bc37241bbfb2" RegularExpression="^.{14} ChatLog 00:0839::请掷骰。">
+        <Actions>
+          <Action OrderNumber="1" JsonEndpointExpression="http://127.0.0.1:${_env[PostNamazu]}/command" JsonPayloadExpression="/pass" KeypressType="WindowMessage" KeyPressExpression="1" KeyPressCode="51" KeyPressWindow="最终幻想XIV" Enabled="False" ActionType="GenericJson" ExecutionDelayExpression="1000">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+          <Action OrderNumber="2" KeypressType="WindowMessage" KeyPressCode="189" KeyPressWindow="最终幻想XIV" ActionType="KeyPress" ExecutionDelayExpression="3000">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+        </Actions>
+        <Condition Enabled="false" Grouping="Or" />
+      </Trigger>
+    </Triggers>
+  </ExportedFolder>
+</TriggernometryExport>

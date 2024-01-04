@@ -1,0 +1,179 @@
+<?xml version="1.0"?>
+<TriggernometryExport Version="1">
+  <ExportedFolder Id="9f708e63-2983-410c-a5e8-df19b472dcb3" Name="喊话触发器" Enabled="true">
+    <Folders>
+      <Folder Id="c85678bc-5a91-4d9d-908f-dd75983905d3" Name="复活" Enabled="false">
+        <Folders />
+        <Triggers>
+          <Trigger Enabled="true" Name="读条复活" Id="86d0b67c-09ae-4517-aa1e-76a83e489a02" RegularExpression="^.*? StartsCasting .{11}:(?&lt;cName&gt;.*?):.{2}:(复活|赤复活|天使低语|复苏|生辰|复生):.{8}:(?&lt;tName&gt;.*?):">
+            <Actions>
+              <Action OrderNumber="1" TriggerOp="EnableTrigger" TriggerId="a2addc0d-5e18-4f01-94ef-4f75b564bbc2" ActionType="Trigger">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" TriggerOp="DisableTrigger" TriggerId="79319bac-c10d-4625-99a0-7bcebf9d98c3" ActionType="Trigger">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="3" ActionType="KeyPress">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="true" Grouping="And">
+              <ConditionSingle Enabled="true" ExpressionL="${cName}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+            </Condition>
+          </Trigger>
+          <Trigger Enabled="false" Name="读条复活完毕" Id="a2addc0d-5e18-4f01-94ef-4f75b564bbc2" RegularExpression="^.*?:.{8}:(?&lt;cName&gt;.*?):.{2}:复活:.{8}:(?&lt;tName&gt;[^:]+?):">
+            <Actions>
+              <Action OrderNumber="1" TriggerOp="EnableTrigger" TriggerId="79319bac-c10d-4625-99a0-7bcebf9d98c3" ActionType="Trigger">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" TriggerOp="DisableTrigger" TriggerId="a2addc0d-5e18-4f01-94ef-4f75b564bbc2" ActionType="Trigger">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="3" ActionType="KeyPress">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${cName}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+            </Condition>
+          </Trigger>
+          <Trigger Enabled="true" Name="即刻复活" Id="79319bac-c10d-4625-99a0-7bcebf9d98c3" RegularExpression="^.*? ActionEffect .{11}:(?&lt;cName&gt;.*?):.{2}:复活:.{8}:(?&lt;tName&gt;[^:]+?):">
+            <Actions>
+              <Action OrderNumber="1" ActionType="KeyPress">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${cName}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+            </Condition>
+          </Trigger>
+          <Trigger Enabled="true" Name="中断复活" Id="b09cb325-e08c-4634-ac67-3b0fc374ec48" RegularExpression="^.*?:.{8}:(?&lt;cName&gt;.*?):.{2}:复活:Cancelled">
+            <Actions>
+              <Action OrderNumber="1" TriggerOp="EnableTrigger" TriggerId="79319bac-c10d-4625-99a0-7bcebf9d98c3" ActionType="Trigger">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" TriggerOp="DisableTrigger" TriggerId="a2addc0d-5e18-4f01-94ef-4f75b564bbc2" ActionType="Trigger">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="3" ActionType="KeyPress">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${cName}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+            </Condition>
+          </Trigger>
+        </Triggers>
+      </Folder>
+      <Folder Id="33554adb-c3ea-4e62-b176-1555114e26ce" Name="无敌" Enabled="true">
+        <Folders />
+        <Triggers>
+          <Trigger Enabled="true" Name="枪刃" Id="54e4e5b2-0759-4d9e-9958-6c55739c557f" RegularExpression="^.*?:.{8}:(?&lt;cName&gt;.*?):3F18:超火流星:">
+            <Actions>
+              <Action OrderNumber="1" Enabled="False" ActionType="KeyPress">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" DiscordWebhookURL="http://127.0.0.1:${var:鲶鱼精邮差监听端口}/command" DiscordWebhookMessage="/p 辛苦了" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/p 《已开启超火流星》" ActionType="GenericJson">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${cName}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+            </Condition>
+          </Trigger>
+          <Trigger Enabled="true" Name="骑士" Id="ab6b514c-b927-4c42-aeea-b2f4e4ccbed1" RegularExpression="^.*?:.{8}:(?&lt;cName&gt;.*?):1E:神圣领域:">
+            <Actions>
+              <Action OrderNumber="1" Enabled="False" ActionType="KeyPress">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" DiscordWebhookURL="http://127.0.0.1:${var:鲶鱼精邮差监听端口}/command" DiscordWebhookMessage="/p 辛苦了" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/p 《已开启神圣领域》" ActionType="GenericJson">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${cName}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+            </Condition>
+          </Trigger>
+          <Trigger Enabled="true" Name="黑骑" Id="e2c9fc44-2534-46bb-8700-4bd6c16b1857" RegularExpression="^.*?:.{8}:(?&lt;cName&gt;.*?):E36:行尸走肉:">
+            <Actions>
+              <Action OrderNumber="1" Enabled="False" ActionType="KeyPress">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" DiscordWebhookURL="http://127.0.0.1:${var:鲶鱼精邮差监听端口}/command" DiscordWebhookMessage="/p 辛苦了" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/p 《已开启行尸走肉》" ActionType="GenericJson">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${cName}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+            </Condition>
+          </Trigger>
+          <Trigger Enabled="true" Name="战士" Id="24af445a-43b7-4a85-a1f0-8d752f19e18b" RegularExpression="^.*?:.{8}:(?&lt;cName&gt;.*?):2B:死斗:">
+            <Actions>
+              <Action OrderNumber="1" Enabled="False" ActionType="KeyPress">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+              <Action OrderNumber="2" DiscordWebhookURL="http://127.0.0.1:${var:鲶鱼精邮差监听端口}/command" DiscordWebhookMessage="/p 辛苦了" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/p 《已死斗》" ActionType="GenericJson">
+                <Condition Enabled="false" Grouping="Or" />
+              </Action>
+            </Actions>
+            <Condition Enabled="true" Grouping="Or">
+              <ConditionSingle Enabled="true" ExpressionL="${cName}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+            </Condition>
+          </Trigger>
+        </Triggers>
+      </Folder>
+    </Folders>
+    <Triggers>
+      <Trigger Enabled="false" Name="昏乱" Id="5158551f-21b7-45ef-a865-8fd1a4df3ff9" RegularExpression="^.*?:.{8}:(?&lt;cName&gt;.*?):.{4}:昏乱:">
+        <Actions>
+          <Action OrderNumber="1" ActionType="KeyPress">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+        </Actions>
+        <Condition Enabled="true" Grouping="Or">
+          <ConditionSingle Enabled="true" ExpressionL="${cName}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+        </Condition>
+      </Trigger>
+      <Trigger Enabled="false" Name="挑衅" Id="577e11b4-57c0-4019-91da-65074dafd549" RegularExpression="^.*?:.{8}:(?&lt;cName&gt;.*?):.{4}:挑衅:">
+        <Actions>
+          <Action OrderNumber="1" ActionType="KeyPress">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+        </Actions>
+        <Condition Enabled="true" Grouping="Or">
+          <ConditionSingle Enabled="true" ExpressionL="${cName}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+        </Condition>
+      </Trigger>
+      <Trigger Enabled="true" Name="退避" Id="1c81c51e-6c40-4936-a91f-487a7cb90a76" RegularExpression="^.*?:.{8}:(?&lt;cName&gt;.*?):.{4}:退避:">
+        <Actions>
+          <Action OrderNumber="1" DiscordWebhookURL="http://127.0.0.1:${var:鲶鱼精邮差监听端口}/command" DiscordWebhookMessage="/p 辛苦了" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/p 《已退避至:&lt;2&gt;》" ActionType="GenericJson">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+        </Actions>
+        <Condition Enabled="true" Grouping="Or">
+          <ConditionSingle Enabled="true" ExpressionL="${cName}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+        </Condition>
+      </Trigger>
+      <Trigger Enabled="false" Name="雪仇" Id="ecbb3734-9be2-4bf0-8046-4b1b9e92d2d5" RegularExpression="^.*?:.{8}:(?&lt;cName&gt;.*?):.{4}:雪仇:" PrevActionsRefire="Deny" PeriodRefire="Deny" RefirePeriodExpression="30">
+        <Actions>
+          <Action OrderNumber="1" ActionType="KeyPress">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+        </Actions>
+        <Condition Enabled="true" Grouping="Or">
+          <ConditionSingle Enabled="true" ExpressionL="${cName}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+        </Condition>
+      </Trigger>
+      <Trigger Enabled="false" Name="原初的天赐" Id="41760828-e05b-4447-a13b-5317c0f456d5" RegularExpression="^.*?:.{8}:(?&lt;cName&gt;.*?):.{4}:原初的勇猛:">
+        <Actions>
+          <Action OrderNumber="1" DiscordWebhookURL="http://127.0.0.1:${var:鲶鱼精邮差监听端口}/command" DiscordWebhookMessage="/p 辛苦了" JsonEndpointExpression="http://127.0.0.1:2019/command" JsonPayloadExpression="/p 《已使用原初的天赐》" ActionType="GenericJson">
+            <Condition Enabled="false" Grouping="Or" />
+          </Action>
+        </Actions>
+        <Condition Enabled="true" Grouping="Or">
+          <ConditionSingle Enabled="true" ExpressionL="${cName}" ExpressionTypeL="String" ExpressionR="${_ffxivplayer}" ExpressionTypeR="String" ConditionType="StringEqualNocase" />
+        </Condition>
+      </Trigger>
+    </Triggers>
+  </ExportedFolder>
+</TriggernometryExport>
